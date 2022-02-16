@@ -25,18 +25,13 @@ class ImageWithFooter extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Expanded(
-                  child: Column(
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 4.0),
-                        child: Text(
-                          'video titlep',
-                          style: TextStyle(fontSize: 18.0),
-                        ),
-                      ),
-                    ],
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                const Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.only(bottom: 4.0),
+                    child: Text(
+                      'video titlep',
+                      style: TextStyle(fontSize: 18.0),
+                    ),
                   ),
                   flex: 0,
                 ),
@@ -69,27 +64,5 @@ class ImageWithFooter extends StatelessWidget {
         )
       ],
     );
-    /*Stack(
-      fit: StackFit.expand,
-      children: [
-        Image(
-          image: AssetImage("assets/shopping.png"),
-          fit: BoxFit.fill,
-        ),
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: <Widget>[
-            Container(
-              child: Text('300AED'),
-              padding: EdgeInsets.only(right: 8.0, left: 8.0),
-            ),
-            new Spacer(),
-            Container(
-                child: Text('60% Off'),
-                padding: EdgeInsets.only(right: 8.0, left: 8.0)),
-          ],
-        ),
-      ],
-    )*/;
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hm_shopping/head_line.dart';
 import 'package:hm_shopping/image_with_footer.dart';
+import 'package:hm_shopping/star_line.dart';
 
 import 'heading_widget.dart';
 import 'main_category.dart';
@@ -119,6 +120,7 @@ class MyHomePage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             HeadingWidget(titleStyle),
             ImageWithFooter(),
@@ -139,8 +141,9 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
 
-            SizedBox(
-              height: 300.0,
+            Container(
+              //alignment: Alignment.topCenter,
+              height: 250.0,
               child: ListView.builder(
                 physics: ClampingScrollPhysics(),
                 shrinkWrap: true,
@@ -148,10 +151,10 @@ class MyHomePage extends StatelessWidget {
                 itemCount: 15,
                 itemBuilder: (BuildContext context, int index) => Card(
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       SizedBox(
-                        width: 130.0,
+                        width: 150.0,
                         child: Stack(
                           alignment: Alignment.bottomCenter,
                           children: [
@@ -163,43 +166,70 @@ class MyHomePage extends StatelessWidget {
                                     .fill, //fill type of image inside aspectRatio
                               ),
                             ),
-                            Row(
-                              //mainAxisAlignment: MainAxisAlignment.start,
-                              children: <Widget>[
-                                Container(
-                                  child: Text('300A'),
-                                  padding:
-                                      EdgeInsets.only(right: 8.0, left: 8.0),
-                                ),
-                                new Spacer(),
-                                Container(
-                                    child: Text('50%'),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 6.0),
+                              child: Row(
+                                //mainAxisAlignment: MainAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    child: StarLine(3),
                                     padding:
-                                        EdgeInsets.only(right: 8.0, left: 8.0)),
-                              ],
+                                        EdgeInsets.only(right: 2.0, left: 2.0),
+                                  ),
+                                  new Spacer(),
+                                  Container(
+                                    padding: EdgeInsets.all(4.0),
+                                    //color: Colors.pink,
+                                    child: Text(
+                                      "3 KM",
+                                      style: TextStyle(fontSize: 14.0, color: Colors.white),
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: Colors.black26,
+                                      borderRadius: BorderRadius.circular(6),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ],
                         ),
                       ),
                       Container(
-                        width: 130.0,
-                        child: Column(
-                          children: [
-                            Row(
-                              children: const [
-                                Expanded(
-                                    flex: 2,
-                                    child: Text("Hello gfhdfghhdfghfghfdh ")),
-                                Spacer(),
-                                Expanded(flex: 2, child: Text("end ")),
-                              ],
+                        padding: EdgeInsets.only(top: 4.0),
+                        color: Colors.white.withOpacity(0.3),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            const Expanded(
+                              child: Padding(
+                                padding: EdgeInsets.only(right: 18.0),
+                                child: Text(
+                                  '00.00',
+                                  style: TextStyle(fontSize: 12.0),
+                                ),
+                              ),
+                              flex: 0,
                             ),
-                            Text(
-                              'Product Service \nTitle Product' +
-                                  (index + 1).toString(),
-                              style: titleStyle,
-                              textAlign: TextAlign.left,
+                            SizedBox(width: 50.0,),
+
+                            Expanded(
+                              child: Container(
+                                padding: EdgeInsets.all(4.0),
+                                //color: Colors.pink,
+                                child: Text(
+                                  "00%",
+                                  style: TextStyle(fontSize: 12.0),
+                                ),
+                                decoration: BoxDecoration(
+                                  color: Colors.pink,
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                              flex: 0,
                             ),
+
                           ],
                         ),
                       ),
