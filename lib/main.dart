@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:hm_shopping/head_line.dart';
 import 'package:hm_shopping/image_with_footer.dart';
+import 'package:hm_shopping/product_Service_List.dart';
 import 'package:hm_shopping/star_line.dart';
+import 'package:hm_shopping/sub_category_list.dart';
 import 'package:hm_shopping/theme/config.dart';
 import 'package:hm_shopping/theme/custom_theme.dart';
+import 'package:hm_shopping/user_list.dart';
 
 import 'heading_widget.dart';
 import 'main_category.dart';
@@ -53,7 +56,7 @@ class MyHomePage extends StatelessWidget {
     // than having to individually change instances of widgets.
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
-        items: [
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(
               Icons.home,
@@ -162,111 +165,7 @@ class MyHomePage extends StatelessWidget {
                 ),
               ),
             ),
-
-            Container(
-              //alignment: Alignment.topCenter,
-              height: 250.0,
-              child: ListView.builder(
-                physics: ClampingScrollPhysics(),
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemCount: 15,
-                itemBuilder: (BuildContext context, int index) => Card(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        width: 150.0,
-                        child: Stack(
-                          alignment: Alignment.bottomCenter,
-                          children: [
-                            const AspectRatio(
-                              aspectRatio: 14 / 16, //aspect ratio for Image
-                              child: Image(
-                                image: AssetImage('assets/shopping.png'),
-                                fit: BoxFit
-                                    .fill, //fill type of image inside aspectRatio
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(right: 6.0),
-                              child: Row(
-                                //mainAxisAlignment: MainAxisAlignment.start,
-                                children: <Widget>[
-                                  Container(
-                                    child: StarLine(3),
-                                    padding:
-                                        EdgeInsets.only(right: 2.0, left: 2.0),
-                                  ),
-                                  new Spacer(),
-                                  Container(
-                                    padding: EdgeInsets.all(4.0),
-                                    //color: Colors.pink,
-                                    child: Text(
-                                      "3 KM",
-                                      style: TextStyle(fontSize: 14.0, color: Colors.white),
-                                    ),
-                                    decoration: BoxDecoration(
-                                      color: Colors.black26,
-                                      borderRadius: BorderRadius.circular(6),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(left: 4.0, top: 4.0),
-                        color: Colors.white.withOpacity(0.3),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: <Widget>[
-                             Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.only(right: 18.0),
-                                child: Text(
-                                  '00.00',
-                                  style: Theme.of(context).textTheme.subtitle2,
-                                ),
-                              ),
-                              flex: 0,
-                            ),
-                            SizedBox(width: 60.0,),
-
-
-                            Expanded(
-                              child: Container(
-                                padding: EdgeInsets.all(4.0),
-                                //color: Colors.pink,
-                                child: const Text(
-                                  "00%",
-                                  style: TextStyle(fontSize: 12.0),
-                                ),
-                                decoration: BoxDecoration(
-                                  color: Colors.orange,
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                              ),
-                              flex: 0,
-                            ),
-
-
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 4.0, left: 4.0, right: 4.0),
-                        child:  Text("Product Service \nTitle Product",style: Theme.of(context).textTheme.headline1,),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ),
+            ProductServiceList(),
             Align(
               alignment: Alignment.topLeft,
               child: Padding(
@@ -279,36 +178,7 @@ class MyHomePage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
-              height: 200.0,
-              child: ListView.builder(
-                physics: ClampingScrollPhysics(),
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemCount: 15,
-                itemBuilder: (BuildContext context, int index) => Card(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: CircleAvatar(
-                            radius: 40.0,
-                            backgroundColor: Colors.greenAccent,
-                            child: Icon(
-                              Icons.person,
-                            ),
-                          )),
-                      Text(
-                        '@_user' + (index + 1).toString(),
-                        style: Theme.of(context).textTheme.headline1,
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+            UserList(),
             Align(
               alignment: Alignment.topLeft,
               child: Padding(
@@ -330,169 +200,10 @@ class MyHomePage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
-              height: 200.0,
-              child: ListView.builder(
-                physics: ClampingScrollPhysics(),
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemCount: 15,
-                itemBuilder: (BuildContext context, int index) => Card(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: CircleAvatar(
-                            radius: 40.0,
-                            backgroundColor: Colors.blue,
-                            child: Icon(
-                              Icons.keyboard_arrow_right,
-                            ),
-                          )),
-                      Text(
-                        'Sub Category' + (index + 1).toString(),
-                        style: Theme.of(context).textTheme.headline1,
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            Card(
-              child: ListTile(
-                  title: Text('Motivation $int'),
-                  subtitle: Text('this is a description of the motivation')),
-            ),
-            Card(
-              child: ListTile(
-                  title: Text('Motivation $int'),
-                  subtitle: Text('this is a description of the motivation')),
-            ),
-            Card(
-              child: ListTile(
-                  title: Text('Motivation $int'),
-                  subtitle: Text('this is a description of the motivation')),
-            ),
-            Card(
-              child: ListTile(
-                  title: Text('Motivation $int'),
-                  subtitle: Text('this is a description of the motivation')),
-            ),
-            Card(
-              child: ListTile(
-                  title: Text('Motivation $int'),
-                  subtitle: Text('this is a description of the motivation')),
-            ),
-            Card(
-              child: ListTile(
-                  title: Text('Motivation $int'),
-                  subtitle: Text('this is a description of the motivation')),
-            ),
-            Card(
-              child: ListTile(
-                  title: Text('Motivation $int'),
-                  subtitle: Text('this is a description of the motivation')),
-            ),
-            Card(
-              child: ListTile(
-                  title: Text('Motivation $int'),
-                  subtitle: Text('this is a description of the motivation')),
-            ),
-            Card(
-              child: ListTile(
-                  title: Text('Motivation $int'),
-                  subtitle: Text('this is a description of the motivation')),
-            ),
-            Card(
-              child: ListTile(
-                  title: Text('Motivation $int'),
-                  subtitle: Text('this is a description of the motivation')),
-            ),
-            Card(
-              child: ListTile(
-                  title: Text('Motivation $int'),
-                  subtitle: Text('this is a description of the motivation')),
-            ),
+            SubCategoryList(),
           ],
         ),
-      ), /*Padding(
-        padding: const EdgeInsets.only(top: 15.0, bottom: 15.0),
-        child: SingleChildScrollView(
-          // Center is a layout widget. It takes a single child and positions it
-          // in the middle of the parent.
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                height: 50.0,
-                color: Colors.grey[100],
-                child: Row(
-                  children: <Widget>[
-                    Expanded(child: Text("Head til 1")),
-                    Expanded(child: Text("Head til 2")),
-                    Expanded(child: Text("Head til 3")),
-                    Expanded(child: Text("Head til 4")),
-                  ],
-                ),
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: 150.0,
-                child: Stack(
-                  fit: StackFit.expand,
-                  children: [
-                    Image(
-                      image: AssetImage("assets/shopping.png"),
-                      fit: BoxFit.fill,
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: <Widget>[
-                        Container(
-                          child: Text('300AED'),
-                          padding: EdgeInsets.only(right: 8.0, left: 8.0),
-                        ),
-                        new Spacer(),
-                        Container(
-                            child: Text('50% Off'),
-                            padding: EdgeInsets.only(right: 8.0, left: 8.0)),
-                      ],
-                    )
-                  ],
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.only(right: 8.0, left: 8.0),
-                color: Colors.grey[100],
-                width: MediaQuery.of(context).size.width,
-                height: 150.0,
-                margin: EdgeInsets.only(top: 15.0),
-                child: Column(
-                  children: <Widget>[
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        Container(
-                          child: Text('Best practice Definition & Meaning '),
-                        ),
-                        new Spacer(),
-                        Container(
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              child: Text('Shopping'),
-                            ),
-                            padding: EdgeInsets.only(right: 8.0, left: 8.0)),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),*/
+      ),
     );
   }
 }
