@@ -144,20 +144,20 @@ class MyHomePage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            HeadingWidget(titleStyle),
+            HeadingWidget(),
             ImageWithFooter(),
             //// main category part
             HeadLine(),
             ////
-            MainCategory(titleStyle),
-            const Align(
+            MainCategory(),
+             Align(
               alignment: Alignment.topLeft,
               child: Padding(
                 padding:
-                    EdgeInsets.only(top: 15.0, left: 15.0, bottom: 15.0),
+                    const EdgeInsets.only(top: 15.0, left: 15.0, bottom: 15.0),
                 child: Text(
                   '#BEST TITLE',
-                  style: TextStyle(fontSize: 18),
+                  style: Theme.of(context).textTheme.subtitle1,
                   textAlign: TextAlign.start,
                 ),
               ),
@@ -225,12 +225,12 @@ class MyHomePage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: <Widget>[
-                            const Expanded(
+                             Expanded(
                               child: Padding(
-                                padding: EdgeInsets.only(right: 18.0),
+                                padding: const EdgeInsets.only(right: 18.0),
                                 child: Text(
                                   '00.00',
-                                  style: TextStyle(fontSize: 12.0),
+                                  style: Theme.of(context).textTheme.subtitle2,
                                 ),
                               ),
                               flex: 0,
@@ -260,7 +260,7 @@ class MyHomePage extends StatelessWidget {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(top: 4.0, left: 4.0, right: 4.0),
-                        child: const Text("Product Service \nTitle Product",),
+                        child:  Text("Product Service \nTitle Product",style: Theme.of(context).textTheme.headline1,),
                       )
                     ],
                   ),
@@ -274,7 +274,7 @@ class MyHomePage extends StatelessWidget {
                     const EdgeInsets.only(top: 15.0, left: 15.0, bottom: 15.0),
                 child: Text(
                   '#Top TITLE',
-                  style: TextStyle(fontSize: 18),
+                  style: Theme.of(context).textTheme.subtitle1,
                   textAlign: TextAlign.start,
                 ),
               ),
@@ -300,8 +300,8 @@ class MyHomePage extends StatelessWidget {
                             ),
                           )),
                       Text(
-                        'Main \n Category' + (index + 1).toString(),
-                        style: titleStyle,
+                        '@_user' + (index + 1).toString(),
+                        style: Theme.of(context).textTheme.headline1,
                         textAlign: TextAlign.center,
                       ),
                     ],
@@ -317,8 +317,8 @@ class MyHomePage extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      '#Top TITLE',
-                      style: TextStyle(fontSize: 18),
+                      '#Shop by Category',
+                      style: Theme.of(context).textTheme.subtitle1,
                       textAlign: TextAlign.start,
                     ),
                     new Spacer(),
@@ -351,8 +351,8 @@ class MyHomePage extends StatelessWidget {
                             ),
                           )),
                       Text(
-                        'Sub \n Category' + (index + 1).toString(),
-                        style: titleStyle,
+                        'Sub Category' + (index + 1).toString(),
+                        style: Theme.of(context).textTheme.headline1,
                         textAlign: TextAlign.center,
                       ),
                     ],

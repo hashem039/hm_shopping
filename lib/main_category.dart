@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 class MainCategory extends StatelessWidget {
-  MainCategory(this.textStyle);
-  TextStyle? textStyle;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -26,7 +24,7 @@ class MainCategory extends StatelessWidget {
               ),
               Text(
                 'Main \n Category' + (index + 1).toString(),
-                style: textStyle,
+                style: Theme.of(context).textTheme.headline1,
                 textAlign: TextAlign.center,
               ),
             ],

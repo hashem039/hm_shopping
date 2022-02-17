@@ -6,17 +6,16 @@ class HeadLine extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(right: 8.0, left: 8.0, bottom: 8.0),
-      color: Colors.grey[100],
+      padding: EdgeInsets.only(right: 8.0, left: 8.0),
       width: MediaQuery.of(context).size.width,
-      margin: EdgeInsets.only(top: 15.0),
+      margin: EdgeInsets.only(top: 4.0),
       child: Column(
         children: <Widget>[
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Container(
-                child: Text('Best practice Definition & Meaning ', style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),),
+                child: Text('Best practice Definition & Meaning ', style: Theme.of(context).textTheme.subtitle1,/*TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold)*/),
               ),
               new Spacer(),
               Container(
