@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hm_shopping/head_line.dart';
 import 'package:hm_shopping/image_with_footer.dart';
 import 'package:hm_shopping/star_line.dart';
+import 'package:hm_shopping/theme/config.dart';
+import 'package:hm_shopping/theme/custom_theme.dart';
 
 import 'heading_widget.dart';
 import 'main_category.dart';
@@ -10,21 +12,36 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}): super(key: key);
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
+  @override
+  void initState() {
+    super.initState();
+    currentTheme.addListener(() {
+      //2
+      setState(() {});
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'USell Up',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: CustomTheme.lightTheme,
+      darkTheme: CustomTheme.darkTheme,
+      themeMode: currentTheme.currentTheme,
       home: MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     TextStyle? titleStyle = Theme.of(context).textTheme.subtitle1;
@@ -115,7 +132,12 @@ class MyHomePage extends StatelessWidget {
             onPressed: () {},
             icon: Icon(Icons.qr_code_scanner),
           ),
+          IconButton(
+            icon: const Icon(Icons.brightness_4),
+            onPressed: () => currentTheme.toggleTheme(),
+          )
         ],
+        backgroundColor: Theme.of(context).primaryColor,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -231,7 +253,7 @@ class MyHomePage extends StatelessWidget {
                               ),
                               flex: 0,
                             ),
-                            
+
 
                           ],
                         ),

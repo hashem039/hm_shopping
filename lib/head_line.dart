@@ -16,7 +16,7 @@ class HeadLine extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Container(
-                child: Text('Best practice Definition & Meaning '),
+                child: Text('Best practice Definition & Meaning ', style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),),
               ),
               new Spacer(),
               Container(

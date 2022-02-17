@@ -6,22 +6,22 @@ class MainCategory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 200.0,
+      height: 160.0,
       child: ListView.builder(
         physics: ClampingScrollPhysics(),
-        shrinkWrap: true,
+        //shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         itemCount: 15,
         itemBuilder: (BuildContext context, int index) => Card(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
                 child: CircleAvatar(
-                  radius: 40.0,
-                  backgroundColor: Colors.blue,
-                  child: Icon(Icons.keyboard_arrow_right),
+                  radius: 45.0,
+                  backgroundColor: Colors.black,
+                  child: Icon(Icons.category),
                 ),
               ),
               Text(
