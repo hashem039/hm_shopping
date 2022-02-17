@@ -152,6 +152,7 @@ class MyHomePage extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) => Card(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
                         width: 150.0,
@@ -196,7 +197,7 @@ class MyHomePage extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        padding: EdgeInsets.only(top: 4.0),
+                        padding: EdgeInsets.only(left: 4.0, top: 4.0),
                         color: Colors.white.withOpacity(0.3),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -212,27 +213,33 @@ class MyHomePage extends StatelessWidget {
                               ),
                               flex: 0,
                             ),
-                            SizedBox(width: 50.0,),
+                            SizedBox(width: 60.0,),
+
 
                             Expanded(
                               child: Container(
                                 padding: EdgeInsets.all(4.0),
                                 //color: Colors.pink,
-                                child: Text(
+                                child: const Text(
                                   "00%",
                                   style: TextStyle(fontSize: 12.0),
                                 ),
                                 decoration: BoxDecoration(
-                                  color: Colors.pink,
+                                  color: Colors.orange,
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                               ),
                               flex: 0,
                             ),
+                            
 
                           ],
                         ),
                       ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 4.0, left: 4.0, right: 4.0),
+                        child: const Text("Product Service \nTitle Product",),
+                      )
                     ],
                   ),
                 ),

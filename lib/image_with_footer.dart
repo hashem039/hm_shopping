@@ -12,9 +12,9 @@ class ImageWithFooter extends StatelessWidget {
           children: <Widget>[
             Expanded(
                 child: Image.asset(
-                  'assets/shopping.png',
-                  fit: BoxFit.cover,
-                )),
+              'assets/shopping.png',
+              fit: BoxFit.cover,
+            )),
           ],
         ),
         Container(
@@ -36,11 +36,12 @@ class ImageWithFooter extends StatelessWidget {
                   flex: 0,
                 ),
                 const Spacer(),
-                Padding(
-                  padding: const EdgeInsets.only(right: 8.0),
+                const Padding(
+                  padding: EdgeInsets.only(right: 8.0),
                   child: Text(
                     "00.0000",
-                    style: TextStyle(fontSize: 18.0),
+                    style: TextStyle(
+                        fontSize: 18.0,decorationColor: Colors.red, decorationStyle: TextDecorationStyle.solid,decoration: TextDecoration.lineThrough),
                   ),
                 ),
                 Flexible(
@@ -52,7 +53,7 @@ class ImageWithFooter extends StatelessWidget {
                       style: TextStyle(fontSize: 18.0),
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.pink,
+                      color: Colors.orange,
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
