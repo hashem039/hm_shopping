@@ -22,7 +22,8 @@ class SubCategoryList extends StatelessWidget {
                     radius: 40.0,
                     backgroundColor: Colors.blue,
                     child: Icon(
-                      Icons.keyboard_arrow_right,
+                      Icons.category_outlined,
+                      size: 40.0,
                     ),
                   )),
               Padding(

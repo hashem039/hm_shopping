@@ -25,6 +25,7 @@ class CustomTheme with ChangeNotifier{
         headline1: TextStyle(fontSize: 16.0,fontWeight: FontWeight.normal, color: Colors.black),
         headline6: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
         bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
+        headline2: TextStyle(fontSize: 12.0,fontWeight: FontWeight.normal, color: Colors.black),
 
       ),
 
@@ -45,6 +46,7 @@ class CustomTheme with ChangeNotifier{
           headline1: TextStyle(fontSize: 16.0,fontWeight: FontWeight.normal, color: Colors.white),
           headline6: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
           bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
+          headline2: TextStyle(fontSize: 12.0,fontWeight: FontWeight.normal, color: Colors.white),
 
         ),
         buttonTheme: ButtonThemeData(

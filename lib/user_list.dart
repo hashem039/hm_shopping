@@ -13,16 +13,21 @@ class UserList extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: 15,
         itemBuilder: (BuildContext context, int index) => Card(
+
+          /*shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(100),
+          ),*/
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Padding(
-                  padding: const EdgeInsets.all(8.0),
+              const Padding(
+                  padding: EdgeInsets.all(8.0),
                   child: CircleAvatar(
                     radius: 50.0,
                     backgroundColor: Colors.greenAccent,
                     child: Icon(
                       Icons.person,
+                      size: 50,
                     ),
                   )),
               Text(

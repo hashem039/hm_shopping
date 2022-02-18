@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hm_shopping/app_footer.dart';
 import 'package:hm_shopping/head_line.dart';
 import 'package:hm_shopping/image_with_footer.dart';
 import 'package:hm_shopping/product_Service_List.dart';
-import 'package:hm_shopping/star_line.dart';
 import 'package:hm_shopping/sub_category_list.dart';
 import 'package:hm_shopping/theme/config.dart';
 import 'package:hm_shopping/theme/custom_theme.dart';
@@ -16,7 +16,8 @@ void main() {
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key}): super(key: key);
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   State<MyApp> createState() => _MyAppState();
 }
@@ -31,6 +32,7 @@ class _MyAppState extends State<MyApp> {
       setState(() {});
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -43,11 +45,24 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
 
+class _MyHomePageState extends State<MyHomePage> {
+  int _currentIndex = 0;
+  final List _children = [];
+
+  void onTabTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     TextStyle? titleStyle = Theme.of(context).textTheme.subtitle1;
+    bool _isSearching = false;
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -56,6 +71,7 @@ class MyHomePage extends StatelessWidget {
     // than having to individually change instances of widgets.
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(
@@ -69,72 +85,120 @@ class MyHomePage extends StatelessWidget {
               Icons.fire_extinguisher,
               color: Colors.black54,
             ),
-            label: "Home",
+            label: "Shopping",
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.subscriptions,
               color: Colors.black54,
             ),
-            label: "Home",
+            label: "Gallery",
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.email,
               color: Colors.black54,
             ),
-            label: "Home",
+            label: "Email",
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.folder,
               color: Colors.black54,
             ),
-            label: "Home",
+            label: "Files",
           ),
         ],
         type: BottomNavigationBarType.fixed,
+        onTap: onTabTapped,
       ),
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Container(
-          width: double.infinity,
-          height: 40,
-          decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(5)),
-          child: Center(
-            child: TextField(
-              decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.search),
-                  suffixIcon: IconButton(
-                    icon: Icon(Icons.clear),
-                    onPressed: () {
-                      /* Clear the search field */
+        title: !_isSearching
+            ? Container(
+                width: double.infinity,
+                height: 40,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(5)),
+                child: Center(
+                  child: TextField(
+                    decoration: InputDecoration(
+                        prefixIcon:  IconButton(
+                          icon:  Icon(Icons.search), onPressed: () {
+                        },
+                        ),
+                        suffixIcon: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            IconButton(
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.headphones,
+                                color: Colors.black38,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.av_timer,
+                                color: Colors.black38,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                              },
+                              icon: Icon(
+                                Icons.qr_code_scanner,
+                                color: Colors.black38,
+                              ),
+                            ),
+                          ],
+                        ),
+                        hintText: 'Search...',
+                        border: InputBorder.none),
+                    onTap: () {
                     },
                   ),
-                  hintText: 'Search...',
-                  border: InputBorder.none),
-            ),
-          ),
-        ),
+                ),
+              )
+            : Container(
+                width: double.infinity,
+                height: 40,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(5)),
+                child: Center(
+                  child: TextField(
+                    style: const TextStyle(color: Colors.black),
+                    decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.search),
+                        suffixIcon: IconButton(
+                          icon: Icon(Icons.clear),
+                          onPressed: () {
+                            /* Clear the search field */
+                            setState(() {
+                              _isSearching = false;
+                            });
+                          },
+                        ),
+                        hintText: 'Search...',
+                        border: InputBorder.none),
+                  ),
+                ),
+              ),
         leading: Padding(
-          padding: const EdgeInsets.only(top: 15.0, left: 8.0),
-          child: Text('Uselling UP'),
+          padding: const EdgeInsets.only(top: 8.0, left: 15.0),
+          child: Text(
+            'HM App',
+            style: Theme.of(context)
+                .textTheme
+                .subtitle1
+                ?.copyWith(color: Colors.white),
+          ),
         ),
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.headphones),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.av_timer),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.qr_code_scanner),
-          ),
           IconButton(
             icon: const Icon(Icons.brightness_4),
             onPressed: () => currentTheme.toggleTheme(),
@@ -153,7 +217,7 @@ class MyHomePage extends StatelessWidget {
             HeadLine(),
             ////
             MainCategory(),
-             Align(
+            Align(
               alignment: Alignment.topLeft,
               child: Padding(
                 padding:
@@ -201,6 +265,7 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
             SubCategoryList(),
+            AppFooter(),
           ],
         ),
       ),
