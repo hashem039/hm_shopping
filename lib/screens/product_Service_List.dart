@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hm_shopping/star_line.dart';
+import 'package:hm_shopping/screens/star_line.dart';
 
 class ProductServiceList extends StatelessWidget {
   const ProductServiceList({Key? key}) : super(key: key);

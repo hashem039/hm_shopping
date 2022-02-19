@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:hm_shopping/app_footer.dart';
-import 'package:hm_shopping/head_line.dart';
-import 'package:hm_shopping/image_with_footer.dart';
-import 'package:hm_shopping/product_Service_List.dart';
-import 'package:hm_shopping/sub_category_list.dart';
+import 'package:hm_shopping/network/http_Service.dart';
+import 'package:hm_shopping/screens/album_screen.dart';
+import 'package:hm_shopping/screens/app_footer.dart';
+import 'package:hm_shopping/screens/head_line.dart';
+import 'package:hm_shopping/screens/image_with_footer.dart';
+import 'package:hm_shopping/screens/product_Service_List.dart';
+import 'package:hm_shopping/screens/sub_category_list.dart';
 import 'package:hm_shopping/theme/config.dart';
 import 'package:hm_shopping/theme/custom_theme.dart';
-import 'package:hm_shopping/user_list.dart';
+import 'package:hm_shopping/screens/user_list.dart';
 
-import 'heading_widget.dart';
-import 'main_category.dart';
+import 'screens/heading_widget.dart';
+import 'screens/main_category.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,13 +26,18 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
+  void getAlbums() {
+    HttpService().getAlbums().then((value) => debugPrint(value.toString())).catchError((e)=>debugPrint(e));
+  }
   @override
   void initState() {
     super.initState();
     currentTheme.addListener(() {
       //2
       setState(() {});
+
     });
+    getAlbums();
   }
 
   @override
@@ -57,6 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void onTabTapped(int index) {
     setState(() {
       _currentIndex = index;
+      Navigator.of(context).push(MaterialPageRoute(builder: (context) => new AlbumScreen()));
     });
   }
   @override
@@ -93,6 +101,8 @@ class _MyHomePageState extends State<MyHomePage> {
               color: Colors.black54,
             ),
             label: "Gallery",
+
+
           ),
           BottomNavigationBarItem(
             icon: Icon(
@@ -111,6 +121,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
         type: BottomNavigationBarType.fixed,
         onTap: onTabTapped,
+
       ),
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
