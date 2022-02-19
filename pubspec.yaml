@@ -30,6 +30,7 @@ dependencies:
   flutter:
     sdk: flutter
   http: ^0.13.4
+  custom_navigation_bar: ^0.8.2
 
 
   # The following adds the Cupertino Icons font to your application.

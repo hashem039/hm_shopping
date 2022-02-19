@@ -4,14 +4,17 @@ import 'package:hm_shopping/network/http_Service.dart';
 import '../models/album.dart';
 
 class AlbumScreen extends StatefulWidget {
-  const AlbumScreen({Key? key}) : super(key: key);
+   AlbumScreen(this.appBarTitle);
+  String? appBarTitle;
 
   @override
-  State<AlbumScreen> createState() => _AlbumScreenState();
+  State<AlbumScreen> createState() => _AlbumScreenState(appBarTitle!);
 }
 
 class _AlbumScreenState extends State<AlbumScreen> {
+  _AlbumScreenState(this.appBarTitle);
   late Future<List<Album>> futureAlbum;
+  String appBarTitle;
 
   @override
   void initState() {
@@ -24,7 +27,7 @@ class _AlbumScreenState extends State<AlbumScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Fetch Data Example',
+          appBarTitle,
           style: Theme.of(context).textTheme.subtitle1,
         ),
       ),
