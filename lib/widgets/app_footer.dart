@@ -42,7 +42,7 @@ class AppFooter extends StatelessWidget {
             ],
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Flexible(
                 child: TextButton(
@@ -51,7 +51,7 @@ class AppFooter extends StatelessWidget {
                       style: Theme.of(context).textTheme.headline1),
                 ),
               ),
-              const SizedBox(width: 100.0,),
+              //const SizedBox(width: 100.0,),
               Flexible(
                 flex: 0,
                 child: TextButton(

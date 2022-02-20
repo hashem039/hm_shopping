@@ -115,7 +115,7 @@ class _MyAppState extends State<MyApp> {
           // the App.build method, and use it to set our appbar title.
           title: !_isSearching
               ? Container(
-                  width: double.infinity,
+                  //width: double.infinity,
                   height: 40,
                   decoration: BoxDecoration(
                       color: Colors.white,

@@ -2,17 +2,14 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:hm_shopping/screens/product_Service_List.dart';
-import 'package:hm_shopping/screens/sub_category_list.dart';
-import 'package:hm_shopping/screens/user_list.dart';
-
-import '../theme/config.dart';
-import 'album_screen.dart';
-import 'app_footer.dart';
-import 'head_line.dart';
-import 'heading_widget.dart';
-import 'image_with_footer.dart';
-import 'main_category.dart';
+import 'package:hm_shopping/widgets/sub_category_list.dart';
+import 'package:hm_shopping/widgets/user_list.dart';
+import '../widgets/product_Service_List.dart';
+import '../widgets/app_footer.dart';
+import '../widgets/head_line.dart';
+import '../widgets/heading_widget.dart';
+import '../widgets/image_with_footer.dart';
+import '../widgets/main_category.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key}) : super(key: key);
@@ -65,15 +62,16 @@ class _MyHomePageState extends State<MyHomePage> {
               alignment: Alignment.topLeft,
               child: Padding(
                 padding:
-                const EdgeInsets.only(top: 15.0, left: 15.0, bottom: 15.0),
+                const EdgeInsets.only(top: 8.0, left: 15.0, bottom: 8.0),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       '#Shop by Category',
                       style: Theme.of(context).textTheme.subtitle1,
                       textAlign: TextAlign.start,
                     ),
-                    new Spacer(),
+                    //new Spacer(),
                     TextButton(
                       onPressed: () {},
                       child: Text("View All"),

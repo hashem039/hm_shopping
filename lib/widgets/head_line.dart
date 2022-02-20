@@ -13,11 +13,12 @@ class HeadLine extends StatelessWidget {
         children: <Widget>[
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Container(
                 child: Text('Best practice Definition & Meaning ', style: Theme.of(context).textTheme.subtitle1,/*TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold)*/),
               ),
-              new Spacer(),
+              //new Spacer(),
               Container(
                   child: ElevatedButton(
                     onPressed: () {},
